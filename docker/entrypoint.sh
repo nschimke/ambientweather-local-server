@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-chown -R awuser:awuser /app
-chmod 770 -R /app
+#chown -R awuser:awuser /app
+#chmod 770 -R /app
 
 if [[ "$1" == "api" ]]; then
-    exec runuser -u awuser ./api/Api
+    exec ./api/Api
 elif [[ "$1" == "pyroscope" ]]; then
     echo Launching with Pyroscope
     exec pyroscope exec -spy-name dotnetspy -user-name awuser -group-name awuser ./api/Api

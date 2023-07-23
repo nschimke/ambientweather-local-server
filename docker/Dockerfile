@@ -51,13 +51,13 @@ RUN if [[ "$TARGETPLATFORM" = "linux/arm64" ]] ; then \
 ###################
 FROM final
 
-COPY --from=build /build/LICENSE ./LICENSE
+COPY --chown=awuser:awuser --from=build /build/LICENSE ./LICENSE
 
-COPY --from=build /build/published/api ./api
+COPY --chown=awuser:awuser --from=build /build/published/api ./api
 
-COPY --from=build /build/api.configuration.example.json ./api/configuration.local.json
+COPY --chown=awuser:awuser --from=build /build/api.configuration.example.json ./api/configuration.local.json
 
-COPY --chmod=770 ./docker/entrypoint.sh .
+COPY --chown=awuser:awuser --chmod=770 ./docker/entrypoint.sh .
 
 EXPOSE 8080 8443
 ENTRYPOINT ["/app/entrypoint.sh"]
