@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 #chown -R awuser:awuser /app
 #chmod 770 -R /app
